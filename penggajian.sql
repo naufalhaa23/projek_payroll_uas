@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 02:01 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- Generation Time: Dec 21, 2023 at 02:32 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,7 +69,10 @@ CREATE TABLE `data_kehadiran` (
 INSERT INTO `data_kehadiran` (`id_kehadiran`, `bulan`, `nik`, `nama_pegawai`, `jenis_kelamin`, `nama_jabatan`, `hadir`, `sakit`, `alfa`) VALUES
 (1, '122023', '12345657', 'Ahmad', 'Laki-laki', 'Staff Marketing', 27, 0, 1),
 (2, '122023', '123456564', 'Doni', 'Laki-laki', 'Staff Office', 28, 0, 0),
-(3, '122023', '12345656', 'Rani', 'Perempuan', 'Admin', 28, 0, 0);
+(3, '122023', '12345656', 'Rani', 'Perempuan', 'Admin', 28, 0, 0),
+(9, '012024', '12345657', 'Ahmad', 'Laki-laki', 'Staff Marketing', 28, 0, 0),
+(10, '012024', '123456564', 'Doni', 'Laki-laki', 'Staff Office', 29, 0, 0),
+(11, '012024', '12345656', 'Rani', 'Perempuan', 'Admin', 29, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -187,7 +190,7 @@ ALTER TABLE `data_jabatan`
 -- AUTO_INCREMENT for table `data_kehadiran`
 --
 ALTER TABLE `data_kehadiran`
-  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `data_pegawai`

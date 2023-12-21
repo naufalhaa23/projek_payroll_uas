@@ -23,7 +23,7 @@
 
 
         <?php foreach($gaji as $g) :?>
-            <?php $pot_gaji = $g->alfa * $potongan ?>
+        <?php $pot_gaji = $g->alfa * $potongan ?>
         <tr>
             <td><?php echo $g->bulan ?></td>
             <td>Rp.<?php echo number_format($g->gaji_pokok,0,',','.') ?></td>

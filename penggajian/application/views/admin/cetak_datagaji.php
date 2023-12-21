@@ -13,20 +13,21 @@
 </head>
 <body>
     <center>
-        <h1>PT. NH Logistic</h1>
+        <h1>PT. MDM</h1>
         <h1>Daftar Gaji Pegawai</h1>
     </center>
     <?php
-    if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
-        $bulan = $_GET['bulan'];
-        $tahun = $_GET['tahun'];
-        $bulantahun = $bulan.$tahun;
-    }
-    else{
+    $bulan = $this->input->post('bulan');
+    $tahun = $this->input->post('tahun');
+    if ($bulan === null || $bulan === '') {
         $bulan = date('m');
-        $tahun = date('Y');
-        $bulantahun = $bulan.$tahun;
     }
+
+    if ($tahun === null || $tahun === '') {
+        $tahun = date('Y');
+    }
+
+    $bulantahun = $bulan . $tahun;
     ?>
     <table>
         <tr>

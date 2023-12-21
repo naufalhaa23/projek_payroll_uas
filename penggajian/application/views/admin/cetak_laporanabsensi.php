@@ -13,7 +13,7 @@
 </head>
 <body>
     <center>
-        <h1>PT NH Logistic</h1>
+        <h1>PT. MDM</h1>
         <h2>Laporan Kehadiran Pegawai</h2>
     </center>
     <?php 
