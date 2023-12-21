@@ -17,16 +17,17 @@ class Data_penggajian extends CI_Controller{
     {
         $data['title'] = "Data Gaji Pegawai";
     
-    if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
-        $bulan = $_GET['bulan'];
-        $tahun = $_GET['tahun'];
-        $bulantahun = $bulan.$tahun;
-    }
-    else{
-        $bulan = date('m');
-        $tahun = date('Y');
-        $bulantahun = $bulan.$tahun;
-    }
+        $bulan = $this->input->post('bulan');
+        $tahun = $this->input->post('tahun');
+        if ($bulan === null || $bulan === '') {
+            $bulan = date('m');
+        }
+    
+        if ($tahun === null || $tahun === '') {
+            $tahun = date('Y');
+        }
+    
+        $bulantahun = $bulan . $tahun;
     
         $data['potongan'] = $this->penggajian_model->get_data('potongan_gaji')->result();
         $data['gaji'] = $this->db->query("SELECT data_pegawai.nik, data_pegawai.nama_pegawai, data_pegawai.jenis_kelamin, data_jabatan.nama_jabatan, data_jabatan.gaji_pokok, data_jabatan.tj_transport, data_jabatan.uang_makan, data_kehadiran.alfa

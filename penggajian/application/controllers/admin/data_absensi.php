@@ -68,16 +68,17 @@ class Data_absensi extends CI_Controller
                 redirect('admin/data_absensi');
         }
         $data['title'] = "Form Input Absensi";
-        if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
-            $bulan = $_GET['bulan'];
-            $tahun = $_GET['tahun'];
-            $bulantahun = $bulan.$tahun;
-        }
-        else{
+        $bulan = $this->input->post('bulan');
+        $tahun = $this->input->post('tahun');
+        if ($bulan === null || $bulan === '') {
             $bulan = date('m');
-            $tahun = date('Y');
-            $bulantahun = $bulan.$tahun;
         }
+
+        if ($tahun === null || $tahun === '') {
+            $tahun = date('Y');
+        }
+
+        $bulantahun = $bulan . $tahun;
         
         $data['input_absensi'] = $this->db->query("SELECT data_pegawai.*, data_jabatan.nama_jabatan FROM data_pegawai INNER JOIN data_jabatan ON data_pegawai.jabatan = data_jabatan.nama_jabatan
         WHERE NOT EXISTS (SELECT * FROM data_kehadiran WHERE bulan = '$bulantahun' AND data_pegawai.nik = data_kehadiran.nik) ORDER BY data_pegawai.nama_pegawai ASC")->result();

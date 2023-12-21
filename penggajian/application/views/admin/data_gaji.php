@@ -41,16 +41,17 @@
                 </div>
 
                 <?php 
-                    if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
-                    $bulan = $_GET['bulan'];
-                    $tahun = $_GET['tahun'];
-                    $bulantahun = $bulan.$tahun;
-                    }
-                    else{
+                    $bulan = $this->input->post('bulan');
+                    $tahun = $this->input->post('tahun');
+                    if ($bulan === null || $bulan === '') {
                         $bulan = date('m');
+                    }
+                
+                    if ($tahun === null || $tahun === '') {
                         $tahun = date('Y');
-                        $bulantahun = $bulan.$tahun;
-                    } 
+                    }
+                
+                    $bulantahun = $bulan . $tahun;
                 ?>
 
                 <button type="submit" class="btn btn-primary mb-2 ml-auto"><i class="fas fa-eye"></i> Tampilkan Data</button>

@@ -46,16 +46,17 @@
     </div>
 
     <?php
-    if((isset($_GET['bulan']) && $_GET['bulan']!='') && (isset($_GET['tahun']) && $_GET['tahun']!='')){
-        $bulan = $_GET['bulan'];
-        $tahun = $_GET['tahun'];
-        $bulantahun = $bulan.$tahun;
-    }
-    else{
+    $bulan = $this->input->post('bulan');
+    $tahun = $this->input->post('tahun');
+    if ($bulan === null || $bulan === '') {
         $bulan = date('m');
-        $tahun = date('Y');
-        $bulantahun = $bulan.$tahun;
     }
+
+    if ($tahun === null || $tahun === '') {
+        $tahun = date('Y');
+    }
+
+    $bulantahun = $bulan . $tahun;
     ?>
     <div class="alert alert-info">
         Menampilkan Kehadiran Pegawai Bulan : <span class="font-weight-bold"><?php echo $bulan ?></span> Tahun: <span class="font-weight-bold"><?php echo $tahun ?></span>
